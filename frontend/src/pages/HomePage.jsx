@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import AddTask from "@/components/AddTask";
 import StartAndFilter from "@/components/StartAndFilter";
 import TaskList from "@/components/TaskList";
