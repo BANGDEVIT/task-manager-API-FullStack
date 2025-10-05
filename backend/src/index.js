@@ -16,9 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 // End parse application/json sử dụng cái này là ko cần sài body-parser
 
 //Cho phép chia sẻ DB từ BE trả về FE
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors());
-}
+app.use(cors());
+
+// if (process.env.NODE_ENV !== "production") {
+//   app.use(cors());
+// }
 
 //End Cho phép chia sẻ DB từ BE trả về FE
 

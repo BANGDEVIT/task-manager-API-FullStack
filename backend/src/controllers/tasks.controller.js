@@ -57,6 +57,8 @@ export const getAllTasks = async (req, res) => {
     const activeCount = result[0].activeCount[0]?.count || 0;
     const completedCount = result[0].completedCount[0]?.count || 0;
 
+    console.log(tasks)
+
     res.status(200).json({
       message: "Get Successfully",
       tasks: tasks,
