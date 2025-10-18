@@ -5,6 +5,12 @@
 @config "../tailwind.config.js";
 
 @layer base {
+  /* Ẩn icon mắt mặc định của browser */
+  input[type="password"]::-ms-reveal,
+  input[type="password"]::-ms-clear {
+    display: none;
+  }
+
   :root {
     /* Modern todo app color palette */
     --background: 240 10% 98%;

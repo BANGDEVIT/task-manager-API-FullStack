@@ -4,20 +4,28 @@ import { AdminRouter } from "./routes/index.route.js";
 import { connectDB } from "./config/database.js";
 import cors from "cors";
 import path from "path";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT;
 const __dirname = path.resolve();
 
+//Cho phép chia sẻ DB từ BE trả về FE
+app.use(
+  cors({
+    origin: "http://localhost:5173", // URL frontend
+    credentials: true, // Cho phép gửi cookies
+    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 // parse application/json sử dụng cái này là ko cần sài body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // End parse application/json sử dụng cái này là ko cần sài body-parser
-
-//Cho phép chia sẻ DB từ BE trả về FE
-app.use(cors());
-
+app.use(cookieParser());
 // if (process.env.NODE_ENV !== "production") {
 //   app.use(cors());
 // }
